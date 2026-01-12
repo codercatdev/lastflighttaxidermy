@@ -58,10 +58,74 @@ export interface Section {
   image_alt?: string
   actions?: Action[]
   items?: unknown[]
-  grid_items?: unknown[]
-  posts?: unknown[]
-  projects?: unknown[]
-  testimonials?: unknown[]
+  grid_items?: GridItem[]
+  posts?: Post[]
+  projects?: Project[]
+  testimonials?: Testimonial[]
+  col_number?: 'two' | 'three'
+  posts_number?: number
+  projects_number?: number
+  layout_style?: 'mosaic' | 'tiles'
+  view_all_label?: string
+  view_all_url?: string
+  is_numbered?: boolean
+  form_id?: string
+  form_action?: string
+  form_fields?: FormField[]
+  submit_label?: string
+}
+
+export interface Project {
+  _id: string
+  _type: 'project'
+  title?: string
+  date?: string
+  thumb_image?: SanityImage
+  thumb_image_alt?: string
+  stackbit_url_path?: string
+}
+
+export interface Post {
+  _id: string
+  _type: 'post'
+  title?: string
+  subtitle?: string
+  date?: string
+  thumb_image?: SanityImage
+  thumb_image_alt?: string
+  image?: SanityImage
+  image_alt?: string
+  excerpt?: string
+  content?: string
+  stackbit_url_path?: string
+}
+
+export interface Testimonial {
+  _id?: string
+  _type?: 'testimonial'
+  content?: string
+  author?: string
+  avatar?: SanityImage
+  avatar_alt?: string
+}
+
+export interface GridItem {
+  _id?: string
+  title?: string
+  content?: string
+  image?: SanityImage
+  image_alt?: string
+  actions?: Action[]
+}
+
+export interface FormField {
+  _id?: string
+  name?: string
+  label?: string
+  input_type?: 'text' | 'email' | 'tel' | 'number' | 'search' | 'url' | 'password' | 'textarea' | 'select' | 'checkbox'
+  is_required?: boolean
+  default_value?: string
+  options?: string[]
 }
 
 export interface Page {
@@ -72,6 +136,9 @@ export interface Page {
   image?: SanityImage
   image_alt?: string
   content?: string
+  date?: string
+  layout_style?: 'mosaic' | 'tiles'
+  col_number?: 'two' | 'three'
   seo?: {
     title?: string
     description?: string

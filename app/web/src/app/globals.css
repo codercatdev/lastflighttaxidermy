@@ -713,7 +713,7 @@
   }
 
   .site-branding {
-    @apply flex-none flex-[0_1_auto];
+    @apply flex-[0_1_auto] min-w-0;
   }
 
   .site-branding a {
@@ -830,10 +830,6 @@
 
     .menu {
       @apply flex items-center;
-    }
-
-    .menu-item {
-      @apply ml-6;
     }
 
     .menu-item .button {

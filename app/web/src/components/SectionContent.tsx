@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 import Image from 'next/image'
 import type { Section } from '@/types/sanity'
@@ -11,7 +9,7 @@ interface SectionContentProps {
   section?: Section
 }
 
-export default function SectionContent({ section }: SectionContentProps) {
+export default async function SectionContent({ section }: SectionContentProps) {
   if (!section) return null
 
   return (
@@ -40,7 +38,7 @@ export default function SectionContent({ section }: SectionContentProps) {
         )}
         {section.content && (
           <div className="block-content inner-sm">
-            {markdownify(section.content)}
+            {await markdownify(section.content)}
           </div>
         )}
       </div>

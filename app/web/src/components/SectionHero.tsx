@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 import type { Section } from '@/types/sanity'
 import { markdownify } from '../utils/markdownify'
@@ -9,7 +7,7 @@ interface SectionHeroProps {
   section?: Section
 }
 
-export default function SectionHero({ section }: SectionHeroProps) {
+export default async function SectionHero({ section }: SectionHeroProps) {
   if (!section) return null
 
   return (
@@ -22,7 +20,7 @@ export default function SectionHero({ section }: SectionHeroProps) {
         )}
         {section.content && (
           <div className="block-content inner-sm mb-6">
-            {markdownify(section.content)}
+            {await markdownify(section.content)}
           </div>
         )}
         {section.actions && (

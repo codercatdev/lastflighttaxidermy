@@ -16,6 +16,7 @@ export const pageBySlugQuery = groq`*[_type in ["page", "post", "project", "blog
   content,
   seo,
   stackbit_url_path,
+  layout_style,
   sections[]{
     _type == "reference" => @->,
     _type != "reference" => @
@@ -63,4 +64,31 @@ export const allPagesForNavQuery = groq`*[_type in ["page", "post", "project", "
   _id,
   title,
   "url": stackbit_url_path
+}`
+
+// Get all projects for portfolio
+export const allProjectsQuery = groq`*[_type == "project" && defined(stackbit_url_path) && stackbit_url_path match "/photos/*"] | order(date desc){
+  _id,
+  _type,
+  title,
+  date,
+  thumb_image,
+  thumb_image_alt,
+  stackbit_url_path
+}`
+
+// Get all posts for blog
+export const allPostsQuery = groq`*[_type == "post" && defined(stackbit_url_path) && stackbit_url_path match "/blog/*"] | order(date desc){
+  _id,
+  _type,
+  title,
+  subtitle,
+  date,
+  thumb_image,
+  thumb_image_alt,
+  image,
+  image_alt,
+  excerpt,
+  content,
+  stackbit_url_path
 }`

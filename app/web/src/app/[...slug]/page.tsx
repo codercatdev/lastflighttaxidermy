@@ -39,7 +39,7 @@ export default async function DynamicPage({
     return <div>Page not found</div>
   }
 
-  const componentName = page._type
+  const componentName = page._type ? page._type : 'page'
   const PageLayout = pageLayouts[componentName as keyof typeof pageLayouts] || pageLayouts.page
 
   return (

@@ -1,7 +1,7 @@
 import { sanityFetch } from '@/lib/sanityFetch'
 import { pageBySlugQuery, configQuery } from '@/lib/queries'
 import Layout from '@/components/Layout'
-import PageLayout from '@/layouts/page'
+import Advanced from '@/layouts/advanced'
 
 export default async function HomePage() {
   const [{ data: page }, { data: config }] = await Promise.all([
@@ -20,7 +20,7 @@ export default async function HomePage() {
 
   return (
     <Layout config={config} page={page}>
-      <PageLayout page={page} config={config} />
+      <Advanced page={page} config={config} />
     </Layout>
   )
 }

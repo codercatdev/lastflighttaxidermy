@@ -24,8 +24,8 @@ export default function Header({ config, page }: HeaderProps) {
   return (
     <header id="masthead" className="site-header outer">
       <div className="inner">
-        <div className="site-header-inside flex items-center justify-between py-4">
-          <div className="site-branding">
+        <div className="site-header-inside flex items-center justify-between py-4 gap-2 md:gap-4 min-w-0">
+          <div className="site-branding min-w-0 flex-shrink max-w-[60%] md:max-w-none">
             {header.logo_img ? (
               <p className="site-logo m-0">
                 <Link href="/" className="block">
@@ -40,7 +40,7 @@ export default function Header({ config, page }: HeaderProps) {
                 </Link>
               </p>
             ) : (
-              <p className="site-title m-0 text-xl font-bold">
+              <p className="site-title m-0 text-xl font-bold break-words">
                 <Link href="/" className="no-underline">
                   {header.title}
                 </Link>
@@ -63,7 +63,7 @@ export default function Header({ config, page }: HeaderProps) {
               <nav
                 id="main-navigation"
                 className={classNames(
-                  'site-navigation fixed inset-0 z-50 bg-white md:static md:bg-transparent md:z-auto',
+                  'site-navigation fixed inset-0 z-50 bg-white md:static md:bg-transparent md:z-auto flex-shrink-0',
                   menuOpen ? 'block' : 'hidden md:block'
                 )}
                 aria-label="Main Navigation"
@@ -80,7 +80,7 @@ export default function Header({ config, page }: HeaderProps) {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
-                  <ul className="menu flex flex-col md:flex-row md:items-center md:space-x-6 p-4 md:p-0 list-none m-0">
+                  <ul className="menu flex flex-col md:flex-row md:items-center md:space-x-3 xl:space-x-6 p-4 md:p-0 list-none m-0 md:whitespace-nowrap">
                     {_.map(header.nav_links, (action, action_idx) => {
                       const actionUrl = _.trim(action?.url || '', '/')
                       const isCurrent = pageUrl === actionUrl
@@ -90,7 +90,7 @@ export default function Header({ config, page }: HeaderProps) {
                         <li
                           key={action_idx}
                           className={classNames(
-                            'menu-item mb-4 md:mb-0',
+                            'menu-item mb-4 md:mb-0 text-sm xl:text-base',
                             {
                               'current-menu-item': isCurrent,
                               'menu-button': isButton
