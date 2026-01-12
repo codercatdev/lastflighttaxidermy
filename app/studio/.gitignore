@@ -1,1 +1,10 @@
-.sanity/
+.sanity
+node_modules
+dist
+.sanity
+.env.local
+
+# Sanity Functions
+functions/**/.env*
+functions/**/.build/
+functions/**/node_modules/
