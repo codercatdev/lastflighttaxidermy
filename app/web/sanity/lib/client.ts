@@ -14,3 +14,15 @@ export const client = createClient({
     studioUrl: `${baseUrl}/studio`,
   },
 })
+
+// Client without stega for fetching site settings/config
+// This prevents stega encoding from interfering with class names and values used for styling
+export const clientWithoutStega = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn,
+  stega: {
+    enabled: false,
+  },
+})

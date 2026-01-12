@@ -1,6 +1,6 @@
 import { sanityFetch } from '@/lib/sanityFetch'
 import { allPagesQuery, pageBySlugQuery, configQuery } from '@/lib/queries'
-import { client } from '@/lib/client'
+import { client, clientWithoutStega } from '@/lib/client'
 import Layout from '@/components/Layout'
 import pageLayouts from '@/layouts'
 
@@ -25,14 +25,12 @@ export default async function DynamicPage({
   const { slug } = await params;
   const pageSlug = '/' + (slug?.join('/') || '').split('/').filter(Boolean).join('/') || '/'
 
-  const [{ data: page }, { data: config }] = await Promise.all([
+  const [{ data: page }, config] = await Promise.all([
     sanityFetch({
       query: pageBySlugQuery,
       params: { slug: pageSlug },
     }),
-    sanityFetch({
-      query: configQuery,
-    }),
+    clientWithoutStega.fetch(configQuery),
   ])
   if (!page) {
     return <div>Page not found</div>

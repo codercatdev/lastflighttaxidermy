@@ -1,17 +1,16 @@
 import { sanityFetch } from '@/lib/sanityFetch'
 import { pageBySlugQuery, configQuery } from '@/lib/queries'
+import { clientWithoutStega } from '@/lib/client'
 import Layout from '@/components/Layout'
 import Advanced from '@/layouts/advanced'
 
 export default async function HomePage() {
-  const [{ data: page }, { data: config }] = await Promise.all([
+  const [{ data: page }, config] = await Promise.all([
     sanityFetch({
       query: pageBySlugQuery,
       params: { slug: '/' },
     }),
-    sanityFetch({
-      query: configQuery,
-    }),
+    clientWithoutStega.fetch(configQuery),
   ])
 
   if (!page) {
