@@ -317,6 +317,7 @@
 
   .inner-sm {
     @apply mx-auto max-w-inner-sm;
+    box-sizing: border-box;
   }
 
   .site {
@@ -935,6 +936,10 @@
   .page-header,
   .post-header {
     @apply mb-10;
+  }
+
+  .page-header {
+    @apply pt-0;
   }
 
   .page-title,
