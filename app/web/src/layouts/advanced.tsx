@@ -17,8 +17,8 @@ export default function Advanced({ page, config }: AdvancedProps) {
   return (
     <>
       {!page.hide_title && (
-        <header className="page-header inner-sm outer border-t border-charcoal-light-75 pt-8 mt-8">
-          <h1 className="page-title">{page.title}</h1>
+        <header className="page-header inner-sm outer">
+          <h1 className="page-title line-top">{page.title}</h1>
         </header>
       )}
       {_.map(page.sections, (section, section_idx) => {
