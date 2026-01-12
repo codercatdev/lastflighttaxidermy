@@ -1,16 +1,22 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { SanityLive } from '@/lib/sanityFetch'
+import { VisualEditing } from 'next-sanity/visual-editing'
+import { DisableDraftMode } from '@/components/DisableDraftMode'
+import { draftMode } from 'next/headers'
 
 export const metadata: Metadata = {
   title: 'Last Flight Taxidermy',
   description: 'Professional taxidermy services',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const isDraftMode = (await draftMode()).isEnabled
+
   return (
     <html lang="en">
       <head>
@@ -19,7 +25,16 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body className={isDraftMode ? 'draft-mode' : ''}>
+        {children}
+        <SanityLive />
+        {isDraftMode && (
+          <>
+            <DisableDraftMode />
+            <VisualEditing />
+          </>
+        )}
+      </body>
     </html>
   )
 }

@@ -1440,4 +1440,21 @@
       @apply top-[60px];
     }
   }
+
+  /* Ensure styles work correctly in draft mode */
+  body.draft-mode {
+    /* Reset any potential VisualEditing interference */
+    position: relative;
+  }
+
+  /* Ensure VisualEditing overlays don't interfere with Tailwind */
+  body.draft-mode [data-sanity-edit-target] {
+    position: relative;
+  }
+
+  /* Prevent VisualEditing from breaking Tailwind utilities */
+  body.draft-mode * {
+    /* Ensure Tailwind classes take precedence */
+    box-sizing: border-box;
+  }
 }
