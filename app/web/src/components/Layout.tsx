@@ -14,15 +14,17 @@ interface LayoutProps {
 export default function Layout({ children, config, page }: LayoutProps) {
   const colorScheme = config?.color_scheme || 'light'
   const accentColor = config?.accent_color || 'pink'
-  
+
   return (
-    <div 
-      id="page" 
+    <div
+      id="page"
       className={`site palette-${colorScheme} accent-${accentColor}`}
     >
       <Header config={config} page={page} />
-      <main id="content" className="site-content">
-        {children}
+      <main id="content" className="site-content flex flex-col items-center">
+        <div className="w-full max-w-inner text-left">
+          {children}
+        </div>
       </main>
       <Footer config={config} />
     </div>

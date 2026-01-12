@@ -12,12 +12,12 @@ interface FooterProps {
 
 export default function Footer({ config }: FooterProps) {
   const footer = config?.footer
-  
+
   if (!footer) return null
 
   return (
     <footer id="colophon" className="site-footer outer border-t border-charcoal-light-75 py-8 mt-12">
-      <div className="inner">
+      <div className="">
         <div className="site-footer-inside flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="site-info flex flex-col md:flex-row items-center gap-2 md:gap-4 text-sm">
             {footer.content && (

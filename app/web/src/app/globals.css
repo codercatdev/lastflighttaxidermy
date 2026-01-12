@@ -312,7 +312,7 @@
   }
 
   .inner {
-    @apply max-w-inner;
+    @apply max-w-inner mx-auto;
   }
 
   .inner-sm {
