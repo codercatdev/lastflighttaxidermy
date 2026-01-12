@@ -34,7 +34,6 @@ export default async function DynamicPage({
       query: configQuery,
     }),
   ])
-  console.log('config', config)
   if (!page) {
     return <div>Page not found</div>
   }
