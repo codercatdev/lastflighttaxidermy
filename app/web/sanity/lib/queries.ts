@@ -11,7 +11,19 @@ export const pageBySlugQuery = groq`*[_type in ["page", "post", "project", "blog
   _type,
   title,
   subtitle,
-  image,
+  image{
+    ...,
+    asset{
+      _ref,
+      _type
+    },
+    "assetMetadata": asset->.metadata{
+      dimensions{
+        width,
+        height
+      }
+    }
+  },
   image_alt,
   content,
   seo,

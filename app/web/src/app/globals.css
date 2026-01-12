@@ -312,11 +312,11 @@
   }
 
   .inner {
-    @apply mx-auto max-w-inner;
+    @apply max-w-inner;
   }
 
   .inner-sm {
-    @apply mx-auto max-w-inner-sm;
+    @apply max-w-inner-sm;
     box-sizing: border-box;
   }
 

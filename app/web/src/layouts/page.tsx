@@ -18,8 +18,8 @@ export default function PageLayout({ page, config }: PageLayoutProps) {
   return (
     <div className="inner outer">
       <article className="post post-full">
-        <header className="post-header inner-sm border-t border-charcoal-light-75 pt-8 mt-8">
-          <h1 className="post-title">{page.title}</h1>
+        <header className="page-header inner-sm">
+          <h1 className="page-title line-top">{page.title}</h1>
           {page.subtitle && (
             <div className="post-subtitle mt-4">
               {htmlToReact(page.subtitle)}
@@ -27,7 +27,14 @@ export default function PageLayout({ page, config }: PageLayoutProps) {
           )}
         </header>
         {page.image && (
-          <div className="post-image my-8 relative w-full aspect-video">
+          <div
+            className="post-image my-8 relative w-full"
+            style={{
+              aspectRatio: page.image.assetMetadata?.dimensions
+                ? `${page.image.assetMetadata.dimensions.width} / ${page.image.assetMetadata.dimensions.height}`
+                : '16 / 9'
+            }}
+          >
             <Image
               src={urlFor(page.image).width(1200).url()}
               alt={page.image_alt || page.title || ''}

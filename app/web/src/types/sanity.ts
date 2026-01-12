@@ -4,6 +4,12 @@ export interface SanityImage {
     _ref: string
     _type: 'reference'
   }
+  assetMetadata?: {
+    dimensions?: {
+      width: number
+      height: number
+    }
+  }
   alt?: string
 }
 
