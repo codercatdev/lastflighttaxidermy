@@ -1,1 +1,417 @@
 @import "tailwindcss";
+
+@theme {
+  --color-charcoal: #2d2d2d;
+  --color-charcoal-light-80: #e5e5e5;
+  --color-charcoal-light-75: #d4d4d4;
+  --color-charcoal-light-60: #999999;
+  --color-charcoal-light-40: #666666;
+  --color-charcoal-light-25: #404040;
+  --color-charcoal-light-7: #1a1a1a;
+  --color-charcoal-light-3: #0f0f0f;
+
+  --color-accent: #ec4899;
+  --color-accent-green: #10b981;
+  --color-accent-blue: #3b82f6;
+  --color-accent-violet: #8b5cf6;
+  --color-accent-yellow: #f59e0b;
+
+  --max-width-inner: 1200px;
+  --max-width-inner-sm: 960px;
+}
+
+@layer base {
+  html {
+    font-family: 'Karla', sans-serif;
+    font-size: 112.5%;
+    height: 100%;
+    min-height: 100%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    html {
+      font-size: 100%;
+    }
+  }
+
+  body {
+    @apply bg-white text-charcoal;
+    line-height: 1.66667;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body.palette-dark {
+    @apply bg-charcoal text-charcoal-light-60;
+  }
+
+  a {
+    @apply border-b border-current text-accent no-underline transition-colors duration-300;
+  }
+
+  .accent-green a {
+    @apply text-accent-green;
+  }
+
+  .accent-blue a {
+    @apply text-accent-blue;
+  }
+
+  .accent-violet a {
+    @apply text-accent-violet;
+  }
+
+  .accent-yellow a {
+    @apply text-accent-yellow;
+  }
+
+  a:hover,
+  a:focus {
+    @apply text-charcoal;
+  }
+
+  a:not(.button):hover,
+  a:not(.button):focus {
+    .palette-dark & {
+      @apply text-charcoal-light-60;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold leading-tight mt-10 mb-3;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child {
+    @apply mt-0;
+  }
+
+  .palette-dark h1,
+  .palette-dark h2,
+  .palette-dark h3,
+  .palette-dark h4,
+  .palette-dark h5,
+  .palette-dark h6 {
+    @apply text-white;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
+  @media only screen and (max-width: 600px) {
+    h1 {
+      @apply text-4xl;
+    }
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  @media only screen and (max-width: 600px) {
+    h2 {
+      @apply text-3xl;
+    }
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  h5 {
+    @apply text-lg;
+  }
+
+  h6 {
+    @apply text-base;
+  }
+
+  p {
+    @apply mb-6;
+  }
+
+  address {
+    @apply italic mb-6;
+  }
+
+  mark,
+  ins {
+    @apply bg-yellow-200 text-charcoal px-1 no-underline;
+  }
+
+  code,
+  pre {
+    font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  pre {
+    @apply bg-charcoal-light-80 text-sm mb-8 overflow-auto p-6 relative whitespace-pre;
+  }
+
+  .palette-dark pre {
+    @apply bg-charcoal-light-3;
+  }
+
+  blockquote {
+    @apply text-2xl leading-snug my-6 pl-6 pt-2 relative;
+  }
+
+  .palette-dark blockquote {
+    @apply text-white;
+  }
+
+  @media only screen and (max-width: 600px) {
+    blockquote {
+      @apply text-xl;
+    }
+  }
+
+  blockquote:first-child {
+    @apply mt-0;
+  }
+
+  blockquote::before {
+    @apply text-accent absolute left-0 top-0 text-5xl leading-none;
+    content: '\201C';
+  }
+
+  .accent-green blockquote::before {
+    @apply text-accent-green;
+  }
+
+  .accent-blue blockquote::before {
+    @apply text-accent-blue;
+  }
+
+  .accent-violet blockquote::before {
+    @apply text-accent-violet;
+  }
+
+  .accent-yellow blockquote::before {
+    @apply text-accent-yellow;
+  }
+
+  blockquote p {
+    @apply mb-2;
+  }
+
+  blockquote p:last-child {
+    @apply mb-0;
+  }
+
+  blockquote small,
+  blockquote cite {
+    @apply block text-sm not-italic font-normal leading-normal mt-4;
+  }
+
+  blockquote small:last-child,
+  blockquote cite:last-child {
+    @apply mb-0;
+  }
+
+  dl {
+    @apply m-0;
+  }
+
+  dt {
+    @apply font-bold;
+  }
+
+  dd {
+    @apply mb-6;
+  }
+
+  ul,
+  ol {
+    @apply mb-6 pl-5;
+  }
+
+  li>ul,
+  li>ol {
+    @apply mb-0;
+  }
+
+  hr {
+    @apply border-0 border-b border-charcoal-light-75 my-10;
+  }
+
+  .palette-dark hr {
+    @apply border-charcoal-light-7;
+  }
+
+  table {
+    @apply leading-normal mb-6 text-left w-full;
+  }
+
+  caption {
+    @apply text-charcoal-light-40 text-sm not-italic mb-4 text-left;
+  }
+
+  .palette-dark caption {
+    @apply text-charcoal-light-25;
+  }
+
+  th,
+  td {
+    @apply border-b border-charcoal-light-75 py-2 px-1;
+  }
+
+  .palette-dark th,
+  .palette-dark td {
+    @apply border-charcoal-light-7;
+  }
+
+  th {
+    @apply font-bold;
+  }
+
+  .palette-dark th {
+    @apply text-white;
+  }
+
+  embed,
+  iframe,
+  object,
+  video {
+    @apply max-w-full;
+  }
+
+  img {
+    @apply h-auto max-w-full;
+  }
+}
+
+@layer components {
+  .outer {
+    @apply px-[3vw];
+  }
+
+  .inner {
+    @apply mx-auto max-w-inner;
+  }
+
+  .inner-sm {
+    @apply mx-auto max-w-inner-sm;
+  }
+
+  .site {
+    @apply min-h-screen overflow-hidden relative;
+  }
+
+  .site-content {
+    @apply pb-20 pt-20;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .site-content {
+      @apply pb-14 pt-14;
+    }
+  }
+
+  .button {
+    @apply inline-flex items-center justify-center bg-transparent border-0 rounded-none text-accent text-base font-bold leading-tight py-[0.875rem] px-[1.875rem] relative text-center no-underline transition-all duration-300;
+  }
+
+  .accent-green .button {
+    @apply text-accent-green;
+  }
+
+  .accent-blue .button {
+    @apply text-accent-blue;
+  }
+
+  .accent-violet .button {
+    @apply text-accent-violet;
+  }
+
+  .accent-yellow .button {
+    @apply text-accent-yellow;
+  }
+
+  .button::before,
+  .button::after {
+    @apply border-2 border-current box-border absolute left-0 w-full transition-all duration-300;
+    content: '';
+    height: 32%;
+  }
+
+  .button::before {
+    @apply border-b-0 top-0;
+  }
+
+  .button::after {
+    @apply border-t-0 bottom-0;
+  }
+
+  .button:hover::before,
+  .button:focus::before,
+  .button:active::before,
+  .button:hover::after,
+  .button:focus::after,
+  .button:active::after {
+    height: 50%;
+  }
+
+  .button:hover,
+  .button:focus,
+  .button:active {
+    @apply text-accent outline-none;
+  }
+
+  .accent-green .button:hover,
+  .accent-green .button:focus,
+  .accent-green .button:active {
+    @apply text-accent-green;
+  }
+
+  .accent-blue .button:hover,
+  .accent-blue .button:focus,
+  .accent-blue .button:active {
+    @apply text-accent-blue;
+  }
+
+  .accent-violet .button:hover,
+  .accent-violet .button:focus,
+  .accent-violet .button:active {
+    @apply text-accent-violet;
+  }
+
+  .accent-yellow .button:hover,
+  .accent-yellow .button:focus,
+  .accent-yellow .button:active {
+    @apply text-accent-yellow;
+  }
+
+  .button-icon {
+    @apply inline-flex items-center justify-center border-0 box-border text-inherit text-base p-1 no-underline;
+  }
+
+  .button-group {
+    @apply flex items-center flex-wrap;
+  }
+
+  .button-group a {
+    @apply mr-4 mb-4;
+  }
+
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+}
