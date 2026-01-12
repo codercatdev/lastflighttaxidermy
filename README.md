@@ -1,81 +1,134 @@
-# ✨ lastflighttaxidermy ✨
+# Last Flight Taxidermy
 
-<img src="https://themes.stackbit.com/images/exto-demo-1024x768.png" width="600">
+A modern Next.js website built with Sanity CMS and Tailwind CSS, organized as a pnpm workspace with TypeScript.
 
-This is a [Next.js](https://nextjs.org) site using [Sanity](https://www.sanity.io) as a [CMS](https://en.wikipedia.org/wiki/Content_management_system). It was created with [Stackbit](https://www.stackbit.com?utm_source=project-readme&utm_medium=referral&utm_campaign=user_themes) in under a minute.
+## Project Structure
 
-You can [create a site](https://app.stackbit.com/create?theme=https://github.com/stackbit-themes/exto-unibit&utm_source=project-readme&utm_medium=referral&utm_campaign=user_themes) just like this one, or explore some variations. How about a different:
+This is a **pnpm workspace** monorepo with two packages:
 
-<details>
-        <summary>🎨 &nbsp;<strong>Look</strong></summary>
-        <ul>
-                <li><a href="https://app.stackbit.com/create?theme=https://github.com/stackbit-themes/app-unibit&utm_source=project-readme&utm_medium=referral&utm_campaign=user_themes">Mobile application landing page</a></li>
-                <li><a href="https://app.stackbit.com/create?theme=https://github.com/stackbit-themes/book-unibit&utm_source=project-readme&utm_medium=referral&utm_campaign=user_themes">Ebook landing page</a></li>
-                <li><a href="https://app.stackbit.com/create?theme=https://github.com/snipcart/stackbit-theme-planty&utm_source=project-readme&utm_medium=referral&utm_campaign=user_themes">An e-commerce theme powered by Snipcart</a></li>
-                </ul>
-</details>
+```
+├── app/
+│   ├── nextjs/          # Next.js frontend application
+│   └── studio/          # Sanity Studio application
+├── pnpm-workspace.yaml  # Workspace configuration
+└── package.json         # Root workspace package
+```
 
-<details>
-        <summary>✏️ &nbsp;<strong>CMS</strong></summary>
-        <ul>
-                <li><a href="https://app.stackbit.com/create?cms=forestry&utm_source=project-readme&utm_medium=referral&utm_campaign=user_themes">Forestry</a></li>
-                <li><a href="https://app.stackbit.com/create?cms=nocms&utm_source=project-readme&utm_medium=referral&utm_campaign=user_themes">Git</a></li>
-                <li><a href="https://app.stackbit.com/create?cms=datocms&utm_source=project-readme&utm_medium=referral&utm_campaign=user_themes">Dato CMS</a></li>
-                </ul>
-</details>
+## Tech Stack
 
-<details>
-        <summary>⚙️ &nbsp;<strong>Static site generator</strong></summary>
-        <ul>
-                <li><a href="https://app.stackbit.com/create?ssg=gatsby&utm_source=project-readme&utm_medium=referral&utm_campaign=user_themes">Gatsby</a></li>
-                <li><a href="https://app.stackbit.com/create?ssg=hugo&utm_source=project-readme&utm_medium=referral&utm_campaign=user_themes">Hugo</a></li>
-                <li><a href="https://app.stackbit.com/create?ssg=jekyll&utm_source=project-readme&utm_medium=referral&utm_campaign=user_themes">Jekyll</a></li>
-                </ul>
-</details>
+- **Next.js 15** - React framework with App Router
+- **Sanity v3** - Headless CMS
+- **next-sanity** - Sanity toolkit for Next.js
+- **Tailwind CSS** - Utility-first CSS framework
+- **TypeScript** - Type safety
+- **pnpm** - Fast, disk space efficient package manager
 
-## Develop Locally
+## Prerequisites
 
-1. Install [Node.js and npm](https://nodejs.org/en/)
+- Node.js 18+
+- pnpm 8+ (`npm install -g pnpm`)
 
-1. Install npm dependencies:
+## Getting Started
 
-        npm install
+### 1. Install Dependencies
 
-1. Navigate to the ["API Settings"](https://manage.sanity.io/projects/gj7uitls/settings/api) page of this Sanity.io project. Then click "Add new token" and create new "write" token.
+From the root directory:
 
-1. Assign the created token to the `SANITY_ACCESS_TOKEN` environment variable (replace `{sanity_write_token}` with the token):
+```bash
+pnpm install
+```
 
-        export SANITY_ACCESS_TOKEN={sanity_write_token}
+This will install dependencies for all workspace packages.
 
-1. [Optional] Install and run Sanity Studio locally: install sanity-cli `npm install -g @sanity/cli`, navigate to the `/studio` directory, and run `sanity install` and `sanity start`.
-You may be required to login with the Sanity CLI.
+### 2. Environment Variables
 
-1. Start the Next.js local development server:
+Create a `.env.local` file in the root directory:
 
-        npm run develop
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=gj7uitls
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2024-01-01
+```
 
-1. Open [http://localhost:3000/](http://localhost:3000/) in the browser
+### 3. Run Development Servers
 
-1. 🎉
+**Next.js Frontend:**
+```bash
+pnpm dev
+# or
+pnpm --filter nextjs dev
+```
 
-## Editing Content
+**Sanity Studio:**
+```bash
+pnpm studio
+# or
+pnpm --filter studio dev
+```
 
-To start editing your site, you can use the Sanity interface at https://lastflighttaxidermy-e4335.sanity.studio/.
+The Next.js app will be available at [http://localhost:3000](http://localhost:3000)
+The Sanity Studio will be available at [http://localhost:3333](http://localhost:3333)
 
-Alternatively, you can use the free on-page editing experience provided by the [Stackbit Studio](https://stackbit.com?utm_source=project-readme&utm_medium=referral&utm_campaign=user_themes).
+## Available Scripts
 
-[![](https://i3.ytimg.com/vi/zd9lGRLVDm4/hqdefault.jpg)](https://stackbit.link/project-readme-lead-video)
+From the root directory:
 
-Here's a few resources to get you started:
+- `pnpm dev` - Start Next.js development server
+- `pnpm build` - Build Next.js for production
+- `pnpm start` - Start Next.js production server
+- `pnpm studio` - Start Sanity Studio development server
+- `pnpm studio:build` - Build Sanity Studio for production
+- `pnpm lint` - Run ESLint
+- `pnpm type-check` - Run TypeScript type checking for all packages
 
-- 📺 &nbsp; [Editing Content](https://stackbit.link/project-readme-editing-video)
-- 📺 &nbsp; [Adding, Reordering and Deleting Items](https://stackbit.link/project-readme-adding-video)
-- 📺 &nbsp; [Collaboration](https://stackbit.link/project-readme-collaboration-video)
-- 📺 &nbsp; [Publishing](https://stackbit.link/project-readme-publishing-video)
-- 📚 &nbsp; [Stackbit Documentation](https://stackbit.link/project-readme-documentation)
+## Package-Specific Scripts
 
-If you need a hand, make sure to check the [Stackbit support page](https://stackbit.link/project-readme-support).
+You can also run scripts for specific packages:
 
-## Colophon
+```bash
+# Next.js package
+pnpm --filter nextjs dev
+pnpm --filter nextjs build
+pnpm --filter nextjs type-check
 
-Generated at `2021-03-26T20:26:24.690Z` by Stackbit version `0.3.50`.
+# Studio package
+pnpm --filter studio dev
+pnpm --filter studio build
+pnpm --filter studio type-check
+```
+
+## Workspace Structure
+
+### `app/nextjs/`
+
+Next.js frontend application with:
+- TypeScript configuration
+- Tailwind CSS styling
+- Sanity client integration
+- App Router structure
+
+### `app/studio/`
+
+Standalone Sanity Studio with:
+- TypeScript configuration
+- Modern Sanity v3 setup
+- Schema definitions
+
+## TypeScript
+
+All code is written in TypeScript with strict type checking enabled. Type definitions for Sanity data structures are located in `app/nextjs/src/types/sanity.ts`.
+
+## Migration Notes
+
+This project was migrated from:
+- Old Stackbit-based setup → Modern next-sanity
+- JavaScript → TypeScript
+- Single package → pnpm workspace
+- Pages Router → App Router
+- SCSS → Tailwind CSS
+
+See [MIGRATION.md](./MIGRATION.md) for detailed migration information.
+
+## License
+
+MIT
