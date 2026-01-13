@@ -18,7 +18,7 @@ export default async function SectionContent({ section }: SectionContentProps) {
         {(section.title || section.subtitle) && (
           <div className="block-header inner-sm mb-6">
             {section.title && (
-              <h2 className="block-title border-t border-charcoal-light-75 pt-8 mt-8">{section.title}</h2>
+              <h2 className="block-title line-top">{section.title}</h2>
             )}
             {section.subtitle && (
               <p className="block-subtitle mt-4">{htmlToReact(section.subtitle)}</p>
