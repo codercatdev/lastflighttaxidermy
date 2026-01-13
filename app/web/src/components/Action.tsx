@@ -6,6 +6,13 @@ import classNames from 'classnames'
 import type { Action as ActionType } from '@/types/sanity'
 import Icon from './Icon'
 
+type IconName = 'dribbble' | 'facebook' | 'github' | 'instagram' | 'linkedin' | 'pinterest' | 'twitter' | 'youtube' | 'vimeo'
+
+const isValidIconName = (icon: string | undefined): icon is IconName => {
+  const validIcons: IconName[] = ['dribbble', 'facebook', 'github', 'instagram', 'linkedin', 'pinterest', 'twitter', 'youtube', 'vimeo']
+  return icon !== undefined && validIcons.includes(icon as IconName)
+}
+
 interface ActionProps {
   action?: ActionType
 }
@@ -14,7 +21,7 @@ export default function Action({ action }: ActionProps) {
   if (!action) return null
 
   const action_style = action.style || 'link'
-  const action_icon = action.icon || 'dribbble'
+  const action_icon = isValidIconName(action.icon) ? action.icon : 'dribbble'
   const url = action.url || '#'
   const rel = [
     action.new_window ? 'noopener' : '',
