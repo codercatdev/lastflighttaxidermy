@@ -7,7 +7,7 @@ import schemas from './schemas/schema'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'gj7uitls'
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://lastflighttaxidermy.com'
 
 export default defineConfig({
   basePath: '/studio',
