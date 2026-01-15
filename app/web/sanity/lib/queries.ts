@@ -64,7 +64,8 @@ export const pageBySlugQuery = groq`*[_type in ["page", "post", "project", "blog
     testimonials[]{
       _type == "reference" => @->,
       _type != "reference" => @
-    }
+    },
+    pricing_table
   }
 }`
 

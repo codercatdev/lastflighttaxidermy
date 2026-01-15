@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   type: 'document',
@@ -24,13 +24,14 @@ export default defineType({
       title: 'Sections',
       description: 'Page sections',
       of: [
-        {type: 'section_content'},
-        {type: 'section_form'},
-        {type: 'section_grid'},
-        {type: 'section_hero'},
-        {type: 'section_portfolio'},
-        {type: 'section_posts'},
-        {type: 'section_testimonials'},
+        { type: 'section_content' },
+        { type: 'section_form' },
+        { type: 'section_grid' },
+        { type: 'section_hero' },
+        { type: 'section_portfolio' },
+        { type: 'section_posts' },
+        { type: 'section_testimonials' },
+        { type: 'section_pricing_table' },
       ],
     }),
     defineField({

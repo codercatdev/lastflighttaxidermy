@@ -2,6 +2,7 @@ import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { presentationTool, defineLocations } from 'sanity/presentation'
+import { table } from '@sanity/table'
 import schemas from './schemas/schema'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'gj7uitls'
@@ -15,6 +16,7 @@ export default defineConfig({
   plugins: [
     structureTool(),
     visionTool(),
+    table(),
     presentationTool({
       allowOrigins: ['http://localhost:3000'],
       previewUrl: {

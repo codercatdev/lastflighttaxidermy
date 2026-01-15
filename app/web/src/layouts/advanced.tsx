@@ -7,6 +7,7 @@ import SectionPosts from '@/components/SectionPosts'
 import SectionPortfolio from '@/components/SectionPortfolio'
 import SectionGrid from '@/components/SectionGrid'
 import SectionForm from '@/components/SectionForm'
+import SectionPricingTable from '@/components/SectionPricingTable'
 
 interface AdvancedProps {
   page?: Page
@@ -24,6 +25,7 @@ export default async function Advanced({ page, config }: AdvancedProps) {
     SectionPortfolio,
     SectionGrid,
     SectionForm,
+    SectionPricingTable,
   }
 
   return (

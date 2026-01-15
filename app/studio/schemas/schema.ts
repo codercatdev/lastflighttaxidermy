@@ -15,6 +15,7 @@ import section_hero from './section_hero'
 import section_portfolio from './section_portfolio'
 import section_posts from './section_posts'
 import section_testimonials from './section_testimonials'
+import section_pricing_table from './section_pricing_table'
 import action from './action'
 import grid_item from './grid_item'
 import testimonial from './testimonial'
@@ -39,6 +40,7 @@ export default [
   section_portfolio,
   section_posts,
   section_testimonials,
+  section_pricing_table,
   action,
   grid_item,
   testimonial,

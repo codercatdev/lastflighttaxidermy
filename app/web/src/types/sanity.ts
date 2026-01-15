@@ -79,6 +79,12 @@ export interface Section {
   form_action?: string
   form_fields?: FormField[]
   submit_label?: string
+  pricing_table?: {
+    rows?: Array<{
+      _key?: string
+      cells?: string[]
+    }>
+  }
 }
 
 export interface Project {
