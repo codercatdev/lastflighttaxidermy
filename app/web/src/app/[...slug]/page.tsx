@@ -1,18 +1,11 @@
-import { allPagesQuery, pageBySlugQuery, configQuery } from '@/lib/queries'
-import { sanityFetch, clientWithoutStega } from '@/lib/client'
+import { pageBySlugQuery, configQuery } from '@/lib/queries'
+import { sanityFetch } from '@/lib/live'
+import { clientWithoutStega } from '@/lib/client'
 import Layout from '@/components/Layout'
 import pageLayouts from '@/layouts'
 
-export async function generateStaticParams() {
-  // Use client directly for static generation (no draft mode needed)
-  const { data: pages } = await sanityFetch({ query: allPagesQuery })
-
-  if (!pages) return []
-
-  return pages.map((page: any) => ({
-    slug: page.stackbit_url_path.split('/').filter(Boolean),
-  }))
-}
+// Required: defineLive can only be used in React Server Components at request time
+export const dynamic = 'force-dynamic'
 
 export default async function DynamicPage({
   params,

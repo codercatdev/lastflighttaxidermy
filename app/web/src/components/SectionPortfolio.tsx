@@ -5,7 +5,7 @@ import type { Section, Project } from '@/types/sanity'
 import { htmlToReact } from '@/utils/htmlToReact'
 import { allProjectsQuery } from '@/lib/queries'
 import { urlFor } from '@/lib/image'
-import { sanityFetch } from '@/lib/client'
+import { sanityFetch } from '@/lib/live'
 
 interface SectionPortfolioProps {
   section?: Section

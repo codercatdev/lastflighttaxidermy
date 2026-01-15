@@ -1,8 +1,11 @@
-import { sanityFetch } from '@/lib/client'
+import { sanityFetch } from '@/lib/live'
 import { pageBySlugQuery, configQuery } from '@/lib/queries'
 import { clientWithoutStega } from '@/lib/client'
 import Layout from '@/components/Layout'
 import Advanced from '@/layouts/advanced'
+
+// Required: defineLive can only be used in React Server Components at request time
+export const dynamic = 'force-dynamic'
 
 export default async function HomePage() {
   const [{ data: page }, config] = await Promise.all([

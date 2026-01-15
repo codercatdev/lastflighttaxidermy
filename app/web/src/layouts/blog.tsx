@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { Page, Config, Post } from '@/types/sanity'
 import { htmlToReact } from '@/utils/htmlToReact'
-import { sanityFetch } from '@/lib/client'
+import { sanityFetch } from '@/lib/live'
 import { allPostsQuery } from '@/lib/queries'
 import { urlFor } from '@/lib/image'
 
