@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { SanityLive } from '@/lib/sanityFetch'
+import { SanityLive } from '@/lib/client'
 import { VisualEditing } from 'next-sanity/visual-editing'
 import { DisableDraftMode } from '@/components/DisableDraftMode'
 import { draftMode } from 'next/headers'

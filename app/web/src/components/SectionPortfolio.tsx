@@ -3,9 +3,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { Section, Project } from '@/types/sanity'
 import { htmlToReact } from '@/utils/htmlToReact'
-import { sanityFetch } from '@/lib/sanityFetch'
 import { allProjectsQuery } from '@/lib/queries'
 import { urlFor } from '@/lib/image'
+import { sanityFetch } from '@/lib/client'
 
 interface SectionPortfolioProps {
   section?: Section

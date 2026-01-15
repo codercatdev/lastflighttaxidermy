@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { Page, Config, Project } from '@/types/sanity'
 import { urlFor } from '@/lib/image'
-import { sanityFetch } from '@/lib/sanityFetch'
+import { sanityFetch } from '@/lib/client'
 import { allProjectsQuery } from '@/lib/queries'
 
 interface PortfolioProps {

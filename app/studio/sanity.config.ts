@@ -18,7 +18,7 @@ export default defineConfig({
     visionTool(),
     table(),
     presentationTool({
-      allowOrigins: ['http://localhost:3000'],
+      allowOrigins: ['http://localhost:3000', 'https://lastflighttaxidermy.com'],
       previewUrl: {
         draftMode: {
           enable: `${baseUrl}/api/draft-mode/enable`,

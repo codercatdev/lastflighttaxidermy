@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   type: 'document',
@@ -74,7 +74,6 @@ export default defineType({
       },
     }),
   ],
-  singleInstance: true,
   preview: {
     select: {
       title: 'title',

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { Section, Post } from '@/types/sanity'
 import { htmlToReact } from '@/utils/htmlToReact'
-import { sanityFetch } from '@/lib/sanityFetch'
+import { sanityFetch } from '@/lib/client'
 import { allPostsQuery } from '@/lib/queries'
 import { urlFor } from '@/lib/image'
 import CtaButtons from './CtaButtons'
@@ -47,10 +47,10 @@ export default async function SectionPosts({ section }: SectionPostsProps) {
             {recentPosts.map((post: Post) => {
               const formattedDate = post.date
                 ? new Date(post.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })
                 : null
 
               const dateTime = post.date

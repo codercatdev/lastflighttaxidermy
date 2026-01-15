@@ -1,20 +1,17 @@
-import { sanityFetch } from '@/lib/sanityFetch'
 import { allPagesQuery, pageBySlugQuery, configQuery } from '@/lib/queries'
-import { client, clientWithoutStega } from '@/lib/client'
+import { sanityFetch, clientWithoutStega } from '@/lib/client'
 import Layout from '@/components/Layout'
 import pageLayouts from '@/layouts'
 
 export async function generateStaticParams() {
   // Use client directly for static generation (no draft mode needed)
-  const pages = await client.fetch(allPagesQuery)
+  const { data: pages } = await sanityFetch({ query: allPagesQuery })
 
   if (!pages) return []
 
-  return pages
-    .filter((page: any) => page.slug !== '/')
-    .map((page: any) => ({
-      slug: page.slug.split('/').filter(Boolean),
-    }))
+  return pages.map((page: any) => ({
+    slug: page.stackbit_url_path.split('/').filter(Boolean),
+  }))
 }
 
 export default async function DynamicPage({

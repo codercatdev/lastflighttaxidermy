@@ -1,4 +1,4 @@
-import { sanityFetch } from '@/lib/sanityFetch'
+import { sanityFetch } from '@/lib/client'
 import { pageBySlugQuery, configQuery } from '@/lib/queries'
 import { clientWithoutStega } from '@/lib/client'
 import Layout from '@/components/Layout'

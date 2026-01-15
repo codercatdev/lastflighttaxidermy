@@ -1,4 +1,5 @@
 import { createClient } from 'next-sanity'
+import { defineLive } from 'next-sanity/live'
 import { apiVersion, dataset, projectId, useCdn, browserToken } from './env'
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
@@ -26,3 +27,7 @@ export const clientWithoutStega = createClient({
     enabled: false,
   },
 })
+
+export const { sanityFetch, SanityLive } = defineLive({
+  client,
+});
